@@ -111,18 +111,6 @@ El enfoque está puesto en **minimizar riesgo financiero**, priorizando el anál
 
 Los archivos de modelos entrenados (`.pkl`) **no forman parte del versionado principal** del proyecto.
 
-### ¿Por qué?
-
-* Los modelos son **artefactos generados**, no código fuente.
-* Pueden regenerarse ejecutando los notebooks.
-* En entornos reales (banca / fintech), los modelos se gestionan mediante:
-
-  * Model Registry
-  * Versionado interno
-  * Pipelines de entrenamiento
-
-El repositorio prioriza **reproducibilidad, transparencia y trazabilidad**, no almacenamiento de binarios.
-
 ---
 
 ## Análisis de estabilidad y sensibilidad
