@@ -10,3 +10,6 @@ models/*.pkl
 # Sistema
 Thumbs.db
 .DS_Store
+
+# Model artifacts
+models/*.pkl

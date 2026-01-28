@@ -1,20 +1,170 @@
 # Credit Scoring – Loan Approval
 
-Proyecto de análisis y modelado de riesgo crediticio utilizando técnicas de machine learning.
+Proyecto end‑to‑end de **Credit Scoring** orientado a evaluación de riesgo crediticio para aprobación de préstamos, combinando análisis exploratorio, modelos supervisados y validaciones de estabilidad.
 
-## Objetivo
-Construir y evaluar modelos de clasificación para predecir la aprobación de un crédito, analizando el impacto de las variables y la estabilidad del modelo.
+El objetivo principal es **simular el flujo de trabajo real de un equipo de Credit Risk / Data Analytics**, priorizando interpretabilidad, control de riesgo y buenas prácticas de versionado.
+
+---
+
+## Objetivos del proyecto
+
+* Analizar un dataset de solicitudes de préstamo.
+* Construir modelos de clasificación para **default / aprobación**.
+* Comparar modelos lineales vs no lineales.
+* Evaluar dependencia de variables críticas (CIBIL Score).
+* Analizar estabilidad y sensibilidad del modelo.
+* Documentar decisiones como en un entorno bancario real.
+
+---
+
+## Modelos desarrollados
+
+### Regresión Logística
+
+* Modelo baseline.
+* Alta interpretabilidad.
+* Usado como punto de comparación.
+
+### Random Forest
+
+* Modelo no lineal.
+* Captura interacciones complejas entre variables.
+* Desempeño significativamente superior al baseline.
+
+### Random Forest sin CIBIL Score
+
+* Test de **estabilidad estructural**.
+* Evalúa la dependencia del modelo respecto a un score externo.
+* Permite analizar el aporte marginal del resto de las variables.
+
+---
 
 ## Estructura del proyecto
-- `data/`: datos crudos y procesados
-- `notebooks/`: análisis exploratorio, preprocesamiento y modelado
-- `models/`: modelos entrenados
-- `src/`: scripts reutilizables
-- `reports/`: resultados, conclusiones y visualizaciones
 
-## Modelos utilizados
-- Regresión Logística
-- Random Forest
+```
+credit-scoring-loan-approval/
+│
+├── data/
+│   ├── raw/
+│   │   └── loan_approval.csv
+│   │
+│   └── processed/
+│       └── credit_df_processed.csv
+│
+├── notebooks/
+│   ├── 01_eda.ipynb
+│   ├── 02_preprocessing.ipynb
+│   ├── 03_logistic_regression.ipynb
+│   ├── 04_random_forest.ipynb
+│   ├── 05_model_stability_no_cibil.ipynb
+│   └── 06_sensitivity_analysis.ipynb
+│
+├── models/
+│   ├── logistic_regression.pkl
+│   ├── random_forest.pkl
+│   └── random_forest_no_cibil.pkl
+│
+├── src/
+│   ├── preprocessing.py
+│   ├── evaluation.py
+│   └── sensitivity.py
+│
+├── reports/
+│   ├── figures/
+│   └── summary.md
+│
+├── README.md
+├── requirements.txt
+└── .gitignore
+```
 
-## Estado del proyecto
-En desarrollo
+---
+
+## Notebooks (flujo de trabajo)
+
+| Notebook                            | Descripción                                      |
+| ----------------------------------- | ------------------------------------------------ |
+| `01_eda.ipynb`                      | Análisis exploratorio y entendimiento del riesgo |
+| `02_preprocessing.ipynb`            | Limpieza, encoding y preparación del dataset     |
+| `03_logistic_regression.ipynb`      | Modelo baseline e interpretación                 |
+| `04_random_forest.ipynb`            | Modelo principal y feature importance            |
+| `05_model_stability_no_cibil.ipynb` | Evaluación sin variable crítica                  |
+| `06_sensitivity_analysis.ipynb`     | Impacto de cambios en variables clave            |
+
+---
+
+## Métricas clave
+
+* Accuracy
+* Precision
+* Recall
+* F1‑Score
+* ROC‑AUC
+* Matrices de confusión
+* Curvas ROC comparativas
+
+El enfoque está puesto en **minimizar riesgo financiero**, priorizando el análisis de falsos positivos y sensibilidad del modelo.
+
+---
+
+## Nota sobre los modelos entrenados (`.pkl`)
+
+Los archivos de modelos entrenados (`.pkl`) **no forman parte del versionado principal** del proyecto.
+
+### ¿Por qué?
+
+* Los modelos son **artefactos generados**, no código fuente.
+* Pueden regenerarse ejecutando los notebooks.
+* En entornos reales (banca / fintech), los modelos se gestionan mediante:
+
+  * Model Registry
+  * Versionado interno
+  * Pipelines de entrenamiento
+
+El repositorio prioriza **reproducibilidad, transparencia y trazabilidad**, no almacenamiento de binarios.
+
+---
+
+## Análisis de estabilidad y sensibilidad
+
+* Se demuestra la **dependencia crítica del CIBIL Score**.
+* Sin esta variable, el desempeño del modelo cae drásticamente.
+* El análisis de sensibilidad muestra cómo pequeñas variaciones en:
+
+  * Ingreso anual
+  * Monto del préstamo
+  * Score crediticio
+
+afectan la probabilidad de aprobación.
+
+Esto replica prácticas habituales en **validación de modelos regulatorios**.
+
+---
+
+## Tecnologías utilizadas
+
+* Python
+* Pandas / NumPy
+* Scikit‑learn
+* Matplotlib / Seaborn
+* Jupyter Notebook
+* Git / GitHub
+
+---
+
+## Próximos pasos
+
+* Cross‑validation y validación fuera de muestra
+* Calibration (PD)
+* Threshold optimization
+* Feature selection sin score externo
+* Documentación tipo *Model Validation Report*
+
+---
+
+## 👤 Autor
+
+**Franco Aranda**
+Data Analyst · Credit Risk
+
+Proyecto desarrollado con fines académicos y de portfolio profesional.
