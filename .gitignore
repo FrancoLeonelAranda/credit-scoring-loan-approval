@@ -1,5 +1,8 @@
 # Datos
-data/*.csv
+data/**/*.csv
+
+# Modelos entrenados
+models/*.pkl
 
 # Jupyter
 .ipynb_checkpoints/
