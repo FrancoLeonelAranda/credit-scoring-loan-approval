@@ -1,6 +1,6 @@
 # Credit Scoring – Loan Approval
 
-Proyecto end‑to‑end de **Credit Scoring** orientado a evaluación de riesgo crediticio para aprobación de préstamos, combinando análisis exploratorio, modelos supervisados y validaciones de estabilidad.
+Proyecto de **Credit Scoring** orientado a evaluación de riesgo crediticio para aprobación de préstamos, combinando análisis exploratorio, modelos supervisados y validaciones de estabilidad.
 
 El objetivo principal es **simular el flujo de trabajo real de un equipo de Credit Risk / Data Analytics**, priorizando interpretabilidad, control de riesgo y buenas prácticas de versionado.
 
@@ -45,9 +45,6 @@ El objetivo principal es **simular el flujo de trabajo real de un equipo de Cred
 credit-scoring-loan-approval/
 │
 ├── data/
-│   ├── raw/
-│   │   └── loan_approval.csv
-│   │
 │   └── processed/
 │       └── credit_df_processed.csv
 │
@@ -63,11 +60,6 @@ credit-scoring-loan-approval/
 │   ├── logistic_regression.pkl
 │   ├── random_forest.pkl
 │   └── random_forest_no_cibil.pkl
-│
-├── src/
-│   ├── preprocessing.py
-│   ├── evaluation.py
-│   └── sensitivity.py
 │
 ├── reports/
 │   ├── figures/
@@ -109,7 +101,10 @@ El enfoque está puesto en **minimizar riesgo financiero**, priorizando el anál
 
 ## Nota sobre los modelos entrenados (`.pkl`)
 
-Los archivos de modelos entrenados (`.pkl`) **no forman parte del versionado principal** del proyecto.
+Los archivos de modelos entrenados (`.pkl`) se incluyen en este repositorio **con fines de portfolio y reproducibilidad**.
+
+En un entorno productivo o regulado, estos artefactos suelen gestionarse fuera del control de versiones (model registry, storage seguro).  
+Aquí se incluyen para permitir la ejecución directa del flujo analítico y la revisión completa del proyecto.
 
 ---
 
