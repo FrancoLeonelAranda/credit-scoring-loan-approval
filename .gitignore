@@ -1,8 +1,6 @@
 # Datos
-data/**/*.csv
+data/raw/*.csv
 
-# Modelos entrenados
-models/*.pkl
 
 # Jupyter
 .ipynb_checkpoints/
@@ -10,6 +8,3 @@ models/*.pkl
 # Sistema
 Thumbs.db
 .DS_Store
-
-# Model artifacts
-models/*.pkl
